@@ -1,27 +1,47 @@
 import React from "react";
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import { Container, Navbar, Nav, Form } from "react-bootstrap";
+import Img from "./instagram.png";
 
 export default function NavBar() {
   return (
-    <div>
-      <Navbar bg="dark" variant="dark" expand="md">
-        <Container>
-          <Navbar.Brand href="/">MERN CRUD</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/post">Post</Nav.Link>
-              <Nav.Link href="/contact">Contact</Nav.Link>
-            </Nav>
-            <Nav className="ms-auto">
-              <Nav.Link href="/add-user">
-                <Button variant="outline-primary">Add User</Button>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+    <div className="border-bottom">
+      <Container>
+        <div className="py-2 d-flex">
+          <Navbar.Brand href="/">
+            <img src={Img} alt="instagram" />
+          </Navbar.Brand>
+          <Form.Group className="mx-auto d-none d-md-block">
+            <Form.Control type="email" placeholder="Search" />
+          </Form.Group>
+          <Nav className="ms-auto">
+            <Nav.Item>
+              <a href="/">
+                <i className="bi bi-house-door-fill"></i>
+              </a>
+            </Nav.Item>
+            <Nav.Item>
+              <a href="/">
+                <i class="bi bi-messenger"></i>
+              </a>
+            </Nav.Item>
+            <Nav.Item>
+              <a href="/">
+                <i class="bi bi-compass"></i>
+              </a>
+            </Nav.Item>
+            <Nav.Item>
+              <a href="/">
+                <i class="bi bi-heart"></i>
+              </a>
+            </Nav.Item>
+            <Nav.Item>
+              <a href="/">
+                <i class="bi bi-person-circle"></i>
+              </a>
+            </Nav.Item>
+          </Nav>
+        </div>
+      </Container>
     </div>
   );
 }

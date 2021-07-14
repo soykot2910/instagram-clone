@@ -11,8 +11,8 @@ import {
 } from "../controller/userController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
-router.route("/signup").post(addUser);
-router.route("/signin").post(getUser);
+router.route("/signup").post(protect, addUser);
+router.route("/signin").post(protect, getUser);
 
 router.get("/p", protect, (req, res) => {
   res.json({ he: "errolo" });
