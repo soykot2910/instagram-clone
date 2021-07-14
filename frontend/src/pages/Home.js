@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import AllPost from "../components/AllPost";
-import SideBar from "../components/SideBar";
+import AllPost from "../components/allpost/post";
+import SideBar from "../components/sidebar/SideBar";
 
 export default function Home() {
   const [users, setUser] = useState([]);
