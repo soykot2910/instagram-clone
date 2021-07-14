@@ -4,8 +4,8 @@ import NavBar from "./components/header/NavBar";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
-import Contact from "./pages/Contact";
 import Error from "./pages/Error";
+import Login from "./pages/login/Login";
 export default function App() {
   return (
     <Router>
@@ -13,7 +13,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/post" component={Post} />
-        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/login" component={Login} />
         <Route component={Error} />
       </Switch>
       <Footer />
