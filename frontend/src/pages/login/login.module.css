@@ -1,0 +1,44 @@
+.loginCard {
+  max-width: 400px;
+  margin: 1rem auto;
+  padding: 30px;
+  align-items: center;
+}
+.logoWrapper {
+  width: 200px;
+  height: 50px;
+  margin-bottom: 30px;
+}
+.logo {
+  width: 100%;
+  height: 100%;
+}
+.formInput {
+  width: 300px;
+  margin-bottom: 10px;
+}
+.or {
+  font-size: 1.1rem;
+}
+.or::before {
+  content: "";
+  display: inline-block;
+  width: 130px;
+  height: 2px;
+  margin-right: 10px;
+  background-color: rgb(173, 172, 172);
+}
+.or::after {
+  content: "";
+  display: inline-block;
+  width: 130px;
+  height: 2px;
+  margin-left: 10px;
+  background-color: rgb(173, 172, 172);
+}
+.btnApp {
+  width: 130px;
+  margin: 0px 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}

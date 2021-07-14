@@ -1,0 +1,11 @@
+.loginUserImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.loginUser {
+  font-weight: bold;
+  margin-bottom: -4px;
+  margin-top: 7px;
+}
