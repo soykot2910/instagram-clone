@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Post from "./pages/Post";
 import Error from "./pages/Error";
 import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 export default function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/post" component={Post} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
         <Route component={Error} />
       </Switch>
       <Footer />
