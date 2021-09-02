@@ -1,0 +1,29 @@
+.inboxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0px;
+  cursor: pointer;
+}
+.usersWrapper {
+  height: 70vh;
+  overflow-y: scroll;
+}
+.userInfoWrap {
+  display: flex;
+  padding: 10px;
+}
+.userInfoWrap:hover {
+  background: rgb(245, 243, 243);
+  cursor: pointer;
+}
+.userImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.userInfo {
+  margin-left: 15px;
+  line-height: 0.5rem;
+  margin-top: 15px;
+}

@@ -6,12 +6,8 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  body: {
-    type: String,
-    required: true,
-  },
   image: {
-    type: Array,
+    type: String,
   },
   postedBy: {
     type: ObjectId,

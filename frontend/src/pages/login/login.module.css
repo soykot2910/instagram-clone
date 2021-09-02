@@ -1,4 +1,4 @@
-.loginCard {
+.signUpCard {
   max-width: 400px;
   margin: 1rem auto;
   padding: 30px;
@@ -13,12 +13,17 @@
   width: 100%;
   height: 100%;
 }
+.fbSignUPBtn {
+  font-size: 0.9rem;
+  color: white;
+}
 .formInput {
   width: 300px;
   margin-bottom: 10px;
 }
 .or {
   font-size: 1.1rem;
+  margin: 25px 0px;
 }
 .or::before {
   content: "";
@@ -41,4 +46,8 @@
   margin: 0px 10px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+.termPolicy {
+  font-size: 0.9rem;
+  text-align: center;
 }

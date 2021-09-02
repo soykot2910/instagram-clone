@@ -4,10 +4,11 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
 import App from "./App";
+import { InstagramProvider } from "./context/Context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <InstagramProvider>
     <App />
-  </React.StrictMode>,
+  </InstagramProvider>,
   document.getElementById("root")
 );

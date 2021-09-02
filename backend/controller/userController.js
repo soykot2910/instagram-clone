@@ -1,9 +1,25 @@
-import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
-import bcrypt from "bcryptjs";
 
-const addUser = async (req, res) => {
-  const { name, username, email, password } = req.body;
+const authUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (user && (await user.password) === password) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      username: user.username,
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid email or password");
+  }
+};
+
+const registerUser = async (req, res) => {
+  const { name, email, username, password } = req.body;
 
   if (!name || !username || !email || !password) {
     return res.status(422).json({ error: "pleasae add all the fields" });
@@ -15,47 +31,23 @@ const addUser = async (req, res) => {
     throw new Error("User already exists");
   }
 
-  bcrypt.hash(password, 12).then((hashPassword) => {
-    const user = User.create({
-      name,
-      username,
-      email,
-      password: hashPassword,
-    });
-    if (user) {
-      return res.status(201).json({ msg: "user created successfully" });
-    } else {
-      res.status(400);
-      throw new Error("Invalid user data");
-    }
+  const user = await User.create({
+    name,
+    username,
+    email,
+    password,
   });
-};
 
-const getUser = async (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(422).json({ error: "please add email or passord" });
-  }
-
-  try {
-    let user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(401).json({
-        error: "User not exists",
-      });
-    }
-
-    bcrypt.compare(password, user.password).then((doMatch) => {
-      if (doMatch) {
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
-        res.json({ token });
-      } else {
-        return res.status(401).json({ error: "Invalid email or password" });
-      }
+  if (user) {
+    return res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      username: user.username,
     });
-  } catch (err) {
-    throw new Error("Error");
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
   }
 };
 
@@ -81,11 +73,6 @@ const updateUser = async (req, res) => {
   }
 };
 
-const getUsers = async (req, res) => {
-  const users = await User.find({});
-  res.json(users);
-};
-
 const deleteUser = async (req, res) => {
   const user = await User.findById(req.params.id);
 
@@ -98,4 +85,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export { addUser, getUser, getUsers, updateUser, deleteUser };
+export { authUser, registerUser, updateUser, deleteUser };

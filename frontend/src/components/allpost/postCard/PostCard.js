@@ -5,7 +5,7 @@ import classes from "./postCard.module.css";
 export default function PostCard() {
   return (
     <Card className="my-4">
-      <divs
+      <div
         className="d-flex p-2 justify-content-between"
         style={{ cursor: "pointer" }}
       >
@@ -20,7 +20,7 @@ export default function PostCard() {
           <p className="ms-3 mt-2 fw-bold">jon doe</p>
         </div>
         <i className="bi bi-three-dots"></i>
-      </divs>
+      </div>
       <Card.Img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
 
       <Card.Body>
@@ -34,15 +34,19 @@ export default function PostCard() {
         </div>
         <p className={classes.totalLike}>1,545 likes</p>
         <div className={classes.loginUser}>
-          <p className="fw-bold me-2">jon doe</p>
-          <p>Reset a text or link’s color with .text-reset....</p>
+          <p>
+            <span className="fw-bold me-2">jon doe</span>Reset a text or link’s
+            color with .text-reset....
+          </p>
         </div>
         <div className="comments">
           <p className="text-muted">View all 23 comments</p>
           <div className={classes.loginUser}>
-            <p className="fw-bold me-2">jon doe</p>
-            <p>Reset a text or link’s color with .text-reset....</p>
-            <i class="bi bi-heart heart-comment"></i>
+            <p>
+              <span className="fw-bold me-2">jon doe</span>Reset a text or
+              link’s color with .text-reset....
+            </p>
+            <i className={`bi bi-heart ${classes.heartComment}`}></i>
           </div>
         </div>
       </Card.Body>

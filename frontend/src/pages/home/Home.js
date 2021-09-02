@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import axios from "axios";
-import AllPost from "../components/allpost/post";
-import SideBar from "../components/sidebar/SideBar";
+import classes from "./home.module.css";
+import AllPost from "../../components/allpost/post";
+import SideBar from "../../components/sidebar/SideBar";
+import StoryCard from "../../components/storyCard/StoryCard";
 
 export default function Home() {
   const [users, setUser] = useState([]);
@@ -22,15 +24,16 @@ export default function Home() {
   };
 
   return (
-    <Container>
+    <div className={classes.container}>
       <Row>
         <Col lg={8}>
+        <StoryCard/>
           <AllPost />
         </Col>
         <Col lg={4}>
           <SideBar />
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }

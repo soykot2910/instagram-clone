@@ -1,0 +1,20 @@
+.container {
+  background: white;
+  padding: 0 20%;
+}
+
+@media (max-width: 990px) {
+  .container {
+    padding: 0 10%;
+  }
+}
+@media (max-width: 668px) {
+  .container {
+    padding: 0 5%;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    padding: 0 0;
+  }
+}

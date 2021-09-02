@@ -1,0 +1,27 @@
+.msgBox {
+  display: flex;
+  flex-direction: column;
+  height: 78vh;
+}
+.inputBox {
+  margin-top: auto;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 1.5rem;
+  border: 1px solid gray;
+  position: relative;
+  padding-left: 60px;
+}
+.input:focus {
+  outline: none;
+}
+.inputIcon {
+  position: absolute;
+  bottom: -3px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  justify-content: space-between;
+}

@@ -13,14 +13,3 @@ a {
   margin: 10px;
   font-size: 1.5rem;
 }
-
-@media (max-width: 992px) {
-  .container {
-    width: 80%;
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-  }
-}

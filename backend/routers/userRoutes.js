@@ -1,23 +1,18 @@
 import express from "express";
-
 const router = express.Router();
 
 import {
-  addUser,
-  getUser,
-  getUsers,
+  authUser,
+  registerUser,
   updateUser,
   deleteUser,
 } from "../controller/userController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
-router.route("/signup").post(protect, addUser);
-router.route("/signin").post(protect, getUser);
+router.post("/new", registerUser);
 
-router.get("/p", protect, (req, res) => {
-  res.json({ he: "errolo" });
-});
+router.post("/signin", authUser);
 
-router.route("/:id").delete(deleteUser).get(getUser).put(updateUser);
+router.route("/:id").delete(deleteUser).put(updateUser);
 
 export default router;

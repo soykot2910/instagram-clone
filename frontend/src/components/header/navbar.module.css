@@ -1,0 +1,28 @@
+.navBar {
+  background: white;
+  padding: 0 20%;
+}
+
+@media (max-width: 990px) {
+  .navBar {
+    padding: 0 10%;
+  }
+}
+@media (max-width: 768px) {
+  .navBar {
+    padding: 0 5%;
+  }
+}
+@media (max-width: 576px) {
+  .desktopNav {
+    display: none !important;
+  }
+  .camera {
+    display: inline-block !important;
+    margin-right: auto;
+  }
+  .messenger {
+    display: inline-block !important;
+    margin-left: auto;
+  }
+}

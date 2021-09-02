@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Card, Container, Form, FormControl, Button } from "react-bootstrap";
 import classes from "./signup.module.css";
 import Logo from "../../assets/images/instagram.png";
 import PlayStore from "../../assets/images/playstore.png";
 import AppStore from "../../assets/images/appStore.png";
 
-export default function Login() {
+export default function Signup({ history }) {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPasswrod] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { data } = await axios.post("http://localhost:5000/api/users/new", {
+      name,
+      email,
+      username,
+      password,
+    });
+    if (data) {
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      history.push("/");
+    }
+  };
+
   return (
     <Container style={{ marginTop: "4rem" }}>
       <Card className={classes.signUpCard}>
@@ -20,12 +40,32 @@ export default function Login() {
           Log in with Facebook
         </Button>
         <p className={classes.or}>OR</p>
-        <Form>
-          <FormControl placeholder="Email" className={classes.formInput} />
-          <FormControl placeholder="Full Name" className={classes.formInput} />
-          <FormControl placeholder="Username" className={classes.formInput} />
-          <FormControl placeholder="Password" className={classes.formInput} />
-          <Button className="w-100 my-3">Sign up</Button>
+        <Form onSubmit={handleSubmit}>
+          <FormControl
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            className={classes.formInput}
+          />
+          <FormControl
+            placeholder="Full Name"
+            onChange={(e) => setName(e.target.value)}
+            className={classes.formInput}
+          />
+          <FormControl
+            placeholder="Username"
+            onChange={(e) => setUserName(e.target.value)}
+            className={classes.formInput}
+          />
+          <FormControl
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPasswrod(e.target.value)}
+            className={classes.formInput}
+          />
+          <Button type="submit" className="w-100 my-3">
+            Sign up
+          </Button>
 
           <p className={classes.termPolicy}>
             By signing up, you agree to our Terms , Data Policy and Cookies

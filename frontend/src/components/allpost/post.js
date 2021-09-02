@@ -8,7 +8,6 @@ export default function AllPost() {
   useEffect(() => {
     async function fetchPost() {
       const { data } = await axios.get("http://localhost:5000/api/posts");
-      console.log(data);
       setPosts(data["posts"]);
     }
     fetchPost();

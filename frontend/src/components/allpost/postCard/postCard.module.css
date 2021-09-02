@@ -13,6 +13,7 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  margin-top: -10px;
 }
 .totalLike {
   margin-top: -15px;
@@ -22,4 +23,8 @@
   margin-top: -10px;
   cursor: pointer;
   display: flex;
+}
+.heartComment {
+  font-size: 0.9rem;
+  margin-left: auto;
 }
